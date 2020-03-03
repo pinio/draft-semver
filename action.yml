@@ -1,0 +1,5 @@
+name: 'Draft semver'
+description: 'Add semantic versioning to your current draft release'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
