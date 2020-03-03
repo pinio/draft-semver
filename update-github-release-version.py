@@ -8,12 +8,12 @@ from github import Github
 import semver
 
 
-if "INPUT_GITHUB_TOKEN" not in os.environ:
-    print("INPUT_GITHUB_TOKEN environment variable not set!")
+if "GITHUB_TOKEN" not in os.environ:
+    print("GITHUB_TOKEN environment variable not set!")
     sys.exit(1)
 
 
-gh = Github(os.environ["INPUT_GITHUB_TOKEN"])
+gh = Github(os.environ["GITHUB_TOKEN"])
 
 
 def get_releases(repo):
