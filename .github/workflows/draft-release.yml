@@ -12,6 +12,6 @@ jobs:
       - uses: release-drafter/release-drafter@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: pinio/draft-semver@v1
+      - uses: pinio/draft-semver@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
