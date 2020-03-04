@@ -12,6 +12,10 @@ jobs:
       - uses: release-drafter/release-drafter@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: pinio/draft-semver@v1.0.2
+      - name: 'Set draft version number'
+        uses: pinio/draft-semver@v1
+        id: semver
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print the next version
+        run: echo "Next version - ${{ steps.semver.outputs.version-identifier }}"
