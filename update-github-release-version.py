@@ -41,6 +41,8 @@ def get_releases(repo):
 def update_release():
     repo = gh.get_repo(os.environ["GITHUB_REPOSITORY"])
     draft_release, release = get_releases(repo)
+    print(f"Draft release: {draft_release}")
+    print(f"Release: {release}")
 
     current_version = semver.parse_version_info(release.title)
     print(f"Current version: {current_version}")
