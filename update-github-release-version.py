@@ -1,12 +1,10 @@
 import os
+import re
 import sys
-
 from itertools import chain
 
-from github import Github
-
 import semver
-
+from github import Github
 
 if "GITHUB_TOKEN" not in os.environ:
     print("GITHUB_TOKEN environment variable not set!")
@@ -23,14 +21,14 @@ def get_releases(repo):
         print("No releases found!")
         sys.exit(1)
 
-    # Always the first
+    # Always the first?
     draft_release = releases[0]
     if not draft_release.draft:
         print("No draft release found!")
         sys.exit(1)
 
     for release in releases:
-        if not release.draft:
+        if not release.draft and re.match(r"^\d+\.\d+\.\d+$", release.title):
             break
     else:
         print(f"Current release not found!")
