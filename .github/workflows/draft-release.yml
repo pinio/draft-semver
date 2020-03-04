@@ -1,9 +1,10 @@
 name: Create/update draft release
 
 on:
-  push:
-    branches:
-      - development
+  push
+  # :
+  #   branches:
+  #     - development
 
 jobs:
   update_draft_release:
