@@ -18,7 +18,10 @@ example, `2.0.0`). Otherwise, if at least one PR has the `bump-minor` label, it 
 increase the minor version of the draft release (on this example, `1.3.0`). Otherwise,
 it will just increase the patch version (on this example, `1.2.4`).
 
-You should have the action on your action. One example, combining the usage with
+You can also refer to the current version identifier on next actions by accessing
+the output `version-identifier`.
+
+You should have the action on your workflow. One example, combining the usage with
 Release Drafter:
 
 ```yaml
@@ -36,7 +39,11 @@ jobs:
       - uses: release-drafter/release-drafter@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: pinio/draft-semver@v1
+      - name: 'Set draft version number'
+        uses: pinio/draft-semver@v1
+        id: semver
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print the next version
+        run: echo "Next version - ${{ steps.semver.outputs.version-identifier }}"
 ```

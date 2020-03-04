@@ -1,5 +1,12 @@
 name: 'Draft semver'
+author: 'Danilo Martins'
 description: 'Add semantic versioning to your current draft release'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+outputs:
+  version-identifier:
+    description: 'The semantical version of the next release (drafted)'
+branding:
+  icon: 'delete'
+  color: 'purple'
