@@ -29,6 +29,12 @@ def get_releases(repo):
             f"Last release title: {draft_release.title}, "
             f"draft flag: {draft_release.draft}"
         )
+
+        print("\nChecking all releases now")
+        for r in releases:
+            if r.draft:
+                print(f"Draft found: {r.title}")
+
         sys.exit(1)
 
     for release in releases:
