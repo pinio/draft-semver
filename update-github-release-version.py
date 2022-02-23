@@ -25,6 +25,10 @@ def get_releases(repo):
     draft_release = releases[0]
     if not draft_release.draft:
         print("No draft release found!")
+        print(
+            f"Last release title: {draft_release.title}, "
+            f"draft flag: {draft_release.draft}"
+        )
         sys.exit(1)
 
     for release in releases:

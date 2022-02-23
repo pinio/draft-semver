@@ -4,7 +4,7 @@ WORKDIR /app
 
 ADD requirements.txt .
 
-RUN python -m pip install --upgrade pip
+# RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 ADD update-github-release-version.py .
